@@ -19,7 +19,9 @@ router.post("/", authMiddleware, async (req, res) => {
   const business = req.body;
 
   try {
-    const categoryExists = await Category.findOne({ name: business.category });
+    const categoryExists = await Category.findOne({
+      name: business.category,
+    });
     if (!categoryExists) {
       return res.status(400).json({
         message: "Failed to add business: specified category does not exist.",
