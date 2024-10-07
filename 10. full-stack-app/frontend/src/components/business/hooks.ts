@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchBusinesses } from "./api";
+import { fetchBusinesses, fetchBusiness } from "./api";
 
 export const BUSINESS_KEY = "BUSINESS";
 
@@ -7,5 +7,13 @@ export const useBusinesses = () => {
   return useQuery({
     queryKey: [BUSINESS_KEY],
     queryFn: fetchBusinesses,
+  });
+};
+
+export const useBusiness = (businessId: string) => {
+  return useQuery({
+    queryKey: [BUSINESS_KEY, businessId],
+    queryFn: () => fetchBusiness(businessId),
+    enabled: !!businessId,
   });
 };
