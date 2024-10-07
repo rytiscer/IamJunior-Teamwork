@@ -12,7 +12,7 @@ const Topbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout(); // Atsijungimo funkcija iš UserContext
+    logout();
     navigate(ROUTES.HOME);
   };
 

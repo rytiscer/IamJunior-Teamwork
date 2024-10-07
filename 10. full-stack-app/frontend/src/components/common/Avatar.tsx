@@ -1,6 +1,6 @@
 import { PropsWithChildren, useState } from "react";
 import styles from "./Avatar.module.scss";
-import DropdownMenu from "../common/DropdownMenu"; // Naujas komponentas
+import DropdownMenu from "../common/DropdownMenu";
 
 interface AvatarProps {
   onLogout: () => void;
