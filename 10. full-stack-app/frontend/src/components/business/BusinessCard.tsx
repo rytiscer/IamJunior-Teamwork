@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../common/Button";
 import styles from "./BusinessCard.module.scss";
 import { Business } from "./types";
@@ -7,8 +8,15 @@ interface BusinessCardProps {
 }
 
 const BusinessCard = ({ business }: BusinessCardProps) => {
+  const navigate = useNavigate();
+
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      onClick={() => {
+        navigate(`/businesses/${business._id}`);
+      }}
+    >
       {business.imageUrls.length && (
         <img
           src={business.imageUrls[0]}
