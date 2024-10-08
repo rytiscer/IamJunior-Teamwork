@@ -6,4 +6,7 @@ export const ROUTES = {
   REGISTER: "/register",
   SEARCH_CATEGORY: "/search/:category",
   BUSINESS_PAGE: "/businesses/:id",
+  ACCOUNT: "/account",
+  BOOKINGS: "/bookings",
+
 };

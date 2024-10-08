@@ -1,8 +1,26 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useState } from "react";
 import styles from "./Avatar.module.scss";
+import DropdownMenu from "../common/DropdownMenu";
 
-const Avatar = ({ children }: PropsWithChildren) => {
-  return <div className={styles.avatar}>{children}</div>;
+interface AvatarProps {
+  onLogout: () => void;
+}
+
+const Avatar = ({ children, onLogout }: PropsWithChildren<AvatarProps>) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  return (
+    <div className={styles.avatarContainer}>
+      <div className={styles.avatar} onClick={toggleDropdown}>
+        {children}
+      </div>
+      {isDropdownOpen && <DropdownMenu onLogout={onLogout} />}
+    </div>
+  );
 };
 
 export default Avatar;
