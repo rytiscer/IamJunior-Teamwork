@@ -14,9 +14,9 @@ const DropdownMenu = ({ onLogout }: DropdownMenuProps) => {
       <Link to="/bookings" className={styles.dropdownItem}>
         My Bookings
       </Link>
-      <button className={styles.dropdownItem} onClick={onLogout}>
+      <Link to="#" className={styles.dropdownItem} onClick={onLogout}>
         Logout
-      </button>
+      </Link>
     </div>
   );
 };
